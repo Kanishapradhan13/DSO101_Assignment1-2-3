@@ -14,8 +14,6 @@ services:
         value: 5000
       - key: DB_URI
         value: postgresql://render_db_user:your_db_password@your-render-db-host:5432/todo_db
-    buildCommand: cd backend && npm install
-    startCommand: node server.js
 
   - type: web
     name: fe-todo
@@ -23,9 +21,7 @@ services:
     dockerfilePath: ./frontend/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
-        value: https://be-todo.onrender.com
-    buildCommand: cd frontend && npm install && npm run build
-    startCommand: serve -s build
+        value: https://be-todo-02230283.onrender.com/
 
 databases:
   - name: todo-db
