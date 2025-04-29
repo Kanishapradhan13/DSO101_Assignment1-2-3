@@ -2,7 +2,7 @@ services:
   - type: web
     name: be-todo
     env: docker
-    dockerfilePath: backend/Dockerfile
+    dockerfilePath: 02230283_DSO101_A1/backend/Dockerfile
     envVars:
       - key: DB_HOST
         value: your-render-db-host
@@ -18,7 +18,7 @@ services:
   - type: web
     name: fe-todo
     env: docker
-    dockerfilePath: frontend/Dockerfile
+    dockerfilePath: 02230283_DSO101_A1/frontend/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
         value: https://be-todo-02230283.onrender.com/
