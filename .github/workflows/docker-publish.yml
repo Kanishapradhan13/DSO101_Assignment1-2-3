@@ -54,5 +54,3 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/image2:latest
-
-# bjkbik
