@@ -50,7 +50,7 @@ jobs:
       - name: Build and push Image 2
         uses: docker/build-push-action@v6
         with:
-          context: ./backend  # Path to your second image directory
-          file: ./backend/Dockerfile  # Path to your second Dockerfile
+          context: ./backend  
+          file: ./backend/Dockerfile  
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/image2:latest
