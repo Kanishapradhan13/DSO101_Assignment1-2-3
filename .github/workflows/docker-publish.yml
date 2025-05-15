@@ -26,8 +26,8 @@ jobs:
       - name: Build and push Image 1
         uses: docker/build-push-action@v6
         with:
-          context: ./02230283_DS0101_A1/frontend
-          file: ./02230283_DS0101_A1/frontend/Dockerfile
+          context: ./frontend
+          file: ./frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/image1:latest
 
@@ -50,7 +50,7 @@ jobs:
       - name: Build and push Image 2
         uses: docker/build-push-action@v6
         with:
-          context: ./02230283_DS0101_A1/backend
-          file: ./02230283_DS0101_A1/backend/Dockerfile
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/image2:latest
