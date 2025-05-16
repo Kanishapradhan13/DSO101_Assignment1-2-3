@@ -55,13 +55,14 @@ Created Dockerfiles for both frontend and backend
 
 2. Building and Pushing Images to Docker Hub
 
-![alt text](backdockerbuild.png)
+![alt text](02230283_DSO101_A1/backdockerbuild.png)
 
-![alt text](backdockerpush.png)
+![alt text](02230283_DSO101_A1/backdockerpush.png)
 
-![alt text](frontdockerbuild.png)
+![alt text](02230283_DSO101_A1/frontdockerbuild.png)
 
-![alt text](frontdockerpush.png)
+![alt text](02230283_DSO101_A1/frontdockerpush.png)
+
 
 3. Deploying on Render
 
@@ -72,13 +73,14 @@ Deployed backend as a Web Service:
 - Selected "Existing image from Docker Hub"
 - Used image: kanishapradhan/be-todo:02230283
 
-![alt text](be.png)
+![alt text](02230283_DSO101_A1/be.png)
+
 
 - Set environment variables for database connection
 
-![alt text](bevar.png)
+![alt text](02230283_DSO101_A1/bevar.png)
 
-![alt text](bedeployed.png)
+![alt text](02230283_DSO101_A1/bedeployed.png)
 
 
 Deployed frontend as a Web Service:
@@ -86,9 +88,9 @@ Deployed frontend as a Web Service:
 - Selected "Existing image from Docker Hub"
 - Used image: kanishapradhan/fe-todo:02230283
 
-![alt text](fe.png)
+![alt text](02230283_DSO101_A1/fe.png)
 
-![alt text](fedeployed.png)
+![alt text](02230283_DSO101_A1/fedeployed.png)
 
 
 - Set REACT_APP_API_URL to the backend URL
