@@ -1,15 +1,14 @@
 pipeline {
 agent any
 tools {
-nodejs 'NodeJS'
+nodejs 'NodeJS 24.0.2'
 }
 stages {
 // Stage 1: Checkout Code
 stage('Checkout') {
 steps {
 git branch: 'main',
-Url:
-'https://github.com/Kanishapradhan13/DSO101_Assignment1'
+url:'https://github.com/Kanishapradhan13/DSO101_Assignment1'
 }
 }
 // Stage 2: Install Dependencies
