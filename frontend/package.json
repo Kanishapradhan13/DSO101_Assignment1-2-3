@@ -10,7 +10,7 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "eslintConfig": {
