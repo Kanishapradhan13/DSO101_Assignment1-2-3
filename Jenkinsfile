@@ -80,12 +80,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Build Docker image
-                    docker.build('kanishapradhan/node-app:latest')
+                    // Build Docker image using backend Dockerfile
+                    sh 'docker build -t kanishapradhan/node-app:latest -f backend/Dockerfile backend/'
+                    
                     // Push to Docker Hub (requires credentials)
-                    docker.withRegistry('https://registry.hub.docker.com',
-                    'docker-hub-creds') {
-                        docker.image('kanishapradhan/node-app:latest').push()
+                    withCredentials([string(credentialsId: 'docker-hub-creds', variable: 'DOCKER_PWD')]) {
+                        sh 'echo $DOCKER_PWD | docker login -u kanishapradhan --password-stdin'
+                        sh 'docker push kanishapradhan/node-app:latest'
                     }
                 }
             }
