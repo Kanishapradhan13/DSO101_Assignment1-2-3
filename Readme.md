@@ -36,13 +36,13 @@ Created Dockerfiles for both frontend and backend
 
 2. Building and Pushing Images to Docker Hub
 
-![alt text](02230283_DSO101_A1/backdockerbuild.png)
+![alt text](images/backdockerbuild.png)
 
-![alt text](02230283_DSO101_A1/backdockerpush.png)
+![alt text](images/backdockerpush.png)
 
-![alt text](02230283_DSO101_A1/frontdockerbuild.png)
+![alt text](images/frontdockerbuild.png)
 
-![alt text](02230283_DSO101_A1/frontdockerpush.png)
+![alt text](images/frontdockerpush.png)
 
 
 3. Deploying on Render
@@ -54,14 +54,14 @@ Deployed backend as a Web Service:
 - Selected "Existing image from Docker Hub"
 - Used image: kanishapradhan/be-todo:02230283
 
-![alt text](02230283_DSO101_A1/be.png)
+![alt text](images/be.png)
 
 
 - Set environment variables for database connection
 
-![alt text](02230283_DSO101_A1/bevar.png)
+![alt text](images/bevar.png)
 
-![alt text](02230283_DSO101_A1/bedeployed.png)
+![alt text](images/bedeployed.png)
 
 
 Deployed frontend as a Web Service:
@@ -69,9 +69,9 @@ Deployed frontend as a Web Service:
 - Selected "Existing image from Docker Hub"
 - Used image: kanishapradhan/fe-todo:02230283
 
-![alt text](02230283_DSO101_A1/fe.png)
+![alt text](images/fe.png)
 
-![alt text](02230283_DSO101_A1/fedeployed.png)
+![alt text](images/fedeployed.png)
 
 
 - Set REACT_APP_API_URL to the backend URL
@@ -84,7 +84,7 @@ Deployed frontend as a Web Service:
 Created render.yaml file with configurations for both frontend and backend services
 
 2. Repository Structure Adjustments
-Initially encountered issues with the render.yaml file location. Since the assignment was in a subfolder (02230283_DSO101_A1), we needed to:
+Initially encountered issues with the render.yaml file location. Since the assignment was in a subfolder (images), we needed to:
 
 - Move the render.yaml file to the repository root
 - Update the paths in render.yaml to include the subfolder path
@@ -105,8 +105,8 @@ When attempting to deploy using render.yaml, encountered issues with the Dockerf
 Moving render.yaml to the repository root
 Updating paths to include the subfolder:
 
-Changed ./backend/Dockerfile to 02230283_DSO101_A1/backend/Dockerfile
-Changed ./frontend/Dockerfile to 02230283_DSO101_A1/frontend/Dockerfile
+Changed ./backend/Dockerfile to images/backend/Dockerfile
+Changed ./frontend/Dockerfile to images/frontend/Dockerfile
 
 ## Conclusion
 
@@ -147,21 +147,21 @@ Navigated to Manage Jenkins > Tools > NodeJS
 Added NodeJS installation (version 24.0.2)
 Enabled automatic installation to ensure npm was properly detected
 
-![alt text](02230283_DSO101_A1/nodejs.png)
+![alt text](images/nodejs.png)
 
 
 3. GitHub Repository Integration
 Created a GitHub Personal Access Token (PAT) with repo and admin:repo_hook permissions
 
-![alt text](02230283_DSO101_A1/pat.png)
+![alt text](images/pat.png)
 
-![alt text](02230283_DSO101_A1/pat2.png)
+![alt text](images/pat2.png)
 
 Added GitHub credentials in Jenkins (Manage Jenkins > Credentials > Add)
 
-![alt text](02230283_DSO101_A1/creds.png)
+![alt text](images/creds.png)
 
-![alt text](02230283_DSO101_A1/creds2.png)
+![alt text](images/creds2.png)
 
 Connected the pipeline to the repository
 
@@ -170,7 +170,7 @@ Connected the pipeline to the repository
 
 Created a Jenkinsfile in the repository root with the following stages:
 
-![alt text](02230283_DSO101_A1/jenkinsfile.png)
+![alt text](images/jenkinsfile.png)
 
 5. Pipeline Execution
 
@@ -180,26 +180,26 @@ Provided the repository URL and credentials
 Set the script path to "Jenkinsfile"
 
 
-![alt text](02230283_DSO101_A1/pipeline.png)
+![alt text](images/pipeline.png)
 
-![alt text](02230283_DSO101_A1/pipeline2.png)
+![alt text](images/pipeline2.png)
 
 
 Built and monitored the pipeline execution
 
-![alt text](02230283_DSO101_A1/build.png)
+![alt text](images/build.png)
 
-![alt text](02230283_DSO101_A1/build2.png)
+![alt text](images/build2.png)
 
 ### Successful pipeline execution after 9 attempts 
 
-![alt text](02230283_DSO101_A1/success.png)
+![alt text](images/success.png)
 
-![alt text](02230283_DSO101_A1/success2.png)
+![alt text](images/success2.png)
 
 ### DockerHub image 
 
-![alt text](02230283_DSO101_A1/pushedimg.png)
+![alt text](images/pushedimg.png)
 
 image link : https://hub.docker.com/repository/docker/kanishapradhan/node-app/tags/latest/sha256-0032b490171f27f630435bf0f05713dc66a3b40692981b8c38d6a5b0f77b0eae
 
@@ -222,21 +222,21 @@ Configured NodeJS in Manage Jenkins > Tools
 Selected "Install automatically" to ensure npm was included
 Named the tool 'NodeJS 24.0.2' to clearly identify the version
 
-![alt text](02230283_DSO101_A1/nodejs.png)
+![alt text](images/nodejs.png)
 
 #### Challenge 2: Jenkinsfile Syntax Errors
 
 Problem: 
 Initial pipeline runs failed with the error "Invalid parameter 'Url', did you mean 'url'?" and "Tool type 'nodejs' does not have an install of 'NodeJS' configured."
 
-![alt text](02230283_DSO101_A1/error.png)
+![alt text](images/error.png)
 
 Solution:
 
 Fixed the case sensitivity issue by changing Url: to url: for the git repository URL
 Updated the NodeJS tool name in the Jenkinsfile to match exactly what was configured in Jenkins ('NodeJS 24.0.2')
 
-![alt text](02230283_DSO101_A1/soln.png)
+![alt text](images/soln.png)
 
 #### Challenge 3: Package.json Not Found
 
@@ -253,21 +253,21 @@ Created separate stages for frontend and backend to install dependencies, build,
 Problem: 
 The frontend build failed due to ESLint warnings being treated as errors in the CI environment.
 
-![alt text](02230283_DSO101_A1/error2.png)
+![alt text](images/error2.png)
 
 Solution:
 
 Found the specific error in App.js about a missing React Hook dependency ('fetchTodos')
 Modified the build step to continue even if there were ESLint warnings
 
-![alt text](02230283_DSO101_A1/soln2.png)
+![alt text](images/soln2.png)
 
 #### Challenge 5: Docker Permission Issues
 
 Problem: 
 The deployment stage failed with "permission denied while trying to connect to the Docker daemon socket."
 
-![alt text](02230283_DSO101_A1/error3.png)
+![alt text](images/error3.png)
 
 Solution:
 
@@ -285,18 +285,18 @@ Restarted both Docker and Jenkins services:
 Problem: 
 The deployment stage failed with "failed to read dockerfile: open Dockerfile: no such file or directory."
 
-![alt text](02230283_DSO101_A1/error4.png)
+![alt text](images/error4.png)
 
 Solution:
 
 Identified that existing Dockerfiles were already present in both frontend and backend directories
 Modified the Jenkinsfile to explicitly specify the path to the backend Dockerfile:
 
-![alt text](02230283_DSO101_A1/soln4.png)
+![alt text](images/soln4.png)
 
 set up the Docker Hub credentials in Jenkins to push the image in dockerHub
 
-![alt text](02230283_DSO101_A1/soln3.png)
+![alt text](images/soln3.png)
 
 #### Challenge 7: Test Results Not Displaying
 
@@ -332,7 +332,7 @@ Made sure the repository was set to public for easier GitHub Actions execution
 
 Implemented Complete Workflow File
 
-![alt text](02230283_DSO101_A1/deploy.png)
+![alt text](images/deploy.png)
 
 ### GitHub Secrets Configuration
 
@@ -342,17 +342,17 @@ DOCKERHUB_USERNAME: My DockerHub username
 
 DOCKERHUB_TOKEN: Generated DockerHub access token from DockerHub account settings
 
-![alt text](02230283_DSO101_A1/token.png)
+![alt text](images/token.png)
 
-![alt text](02230283_DSO101_A1/secrets.png)
+![alt text](images/secrets.png)
 
 RENDER_BACKEND_WEBHOOK_URL: Webhook URL for frontend service deployment
 
-![alt text](02230283_DSO101_A1/fehook.png)
+![alt text](images/fehook.png)
 
 RENDER_FRONTEND_WEBHOOK_URL: Webhook URL for backend service deployment
 
-![alt text](02230283_DSO101_A1/secrets2.png)
+![alt text](images/secrets2.png)
 
 ### Render.com Deployment Setup
 
@@ -368,17 +368,17 @@ Monitored GitHub Actions tab for workflow execution
 
 Verified each step executed successfully
 
-![alt text](02230283_DSO101_A1/actions.png)
+![alt text](images/actions.png)
 
 2. Deployment Verification
 
 Confirmed Docker images appeared in DockerHub repository
 
-![alt text](02230283_DSO101_A1/images.png)
+![alt text](images/images.png)
 
-![alt text](02230283_DSO101_A1/bedeploy.png)
+![alt text](images/bedeploy.png)
 
-![alt text](02230283_DSO101_A1/fedeploy.png)
+![alt text](images/fedeploy.png)
 
 ## Challenges Faced & Solutions
 
@@ -388,9 +388,32 @@ Since a similar task for the build and push was completed in a class practical, 
 the secrets were supposed to be added in the repository secrets and not the environment secrets. 
 
 - DockerHub authentication and token generation
+The token should be given read and write access
+
+![alt text](images/read.png)
+
 - Docker build context and file path specifications
 
 This prior experience allowed me to implement the GitHub Actions workflow efficiently without encountering significant technical obstacles.
+
+## Key Learnings and Outcomes
+
+- GitHub Actions Mastery: Gained comprehensive understanding of YAML-based workflow configuration
+
+- Multi-Container Orchestration: Learned to manage separate build processes for different application components
+
+- Cloud Deployment Automation: Implemented end-to-end deployment automation using webhook integration
+
+- Security Best Practices: Applied secure credential management using GitHub secrets
+
+- DevOps Integration: Connected development workflow with production deployment seamlessly
+
+#### link to render deployment instance : 
+https://be-todo-02230283.onrender.com
+https://fe-todo-02230283.onrender.com
+
+#### GitHub Repo Link:
+https://github.com/Kanishapradhan13/DSO101_Assignment1-2-3
 
 ## Conclusion 
 
