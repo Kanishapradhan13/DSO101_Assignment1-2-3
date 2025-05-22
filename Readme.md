@@ -311,3 +311,87 @@ This CI/CD pipeline demonstrates a complete automation workflow for a full-stack
 
 
 
+
+
+
+# Assignment III : CI/CD with GitHub Actions
+
+This repository contains the implementation of a CI/CD pipeline using GitHub Actions for a Node.js Todo List application. The pipeline automates the building, testing, and deployment of both frontend (React) and backend (Node.js) components using Docker containers and   Render.com for cloud deployment.
+
+## GitHub Actions Pipeline Implementation
+
+### Repository Setup and Verification
+
+1. Repository Structure Verification
+
+Verified both directories had their respective package.json files with necessary scripts
+Confirmed both directories contained proper Dockerfiles for containerization
+Made sure the repository was set to public for easier GitHub Actions execution
+
+### GitHub Actions Workflow Creation
+
+Implemented Complete Workflow File
+
+![alt text](02230283_DSO101_A1/deploy.png)
+
+### GitHub Secrets Configuration
+
+1. Added Required Secrets
+
+DOCKERHUB_USERNAME: My DockerHub username
+
+DOCKERHUB_TOKEN: Generated DockerHub access token from DockerHub account settings
+
+![alt text](02230283_DSO101_A1/token.png)
+
+![alt text](02230283_DSO101_A1/secrets.png)
+
+RENDER_BACKEND_WEBHOOK_URL: Webhook URL for frontend service deployment
+
+![alt text](02230283_DSO101_A1/fehook.png)
+
+RENDER_FRONTEND_WEBHOOK_URL: Webhook URL for backend service deployment
+
+![alt text](02230283_DSO101_A1/secrets2.png)
+
+### Render.com Deployment Setup
+
+The frontend and backend services were deployed in assignment 1 itself 
+
+### Pipeline Testing and Validation
+
+1. Initial Commit and Push
+
+Committed all workflow files to repository
+Pushed changes to main branch
+Monitored GitHub Actions tab for workflow execution
+
+Verified each step executed successfully
+
+![alt text](02230283_DSO101_A1/actions.png)
+
+2. Deployment Verification
+
+Confirmed Docker images appeared in DockerHub repository
+
+![alt text](02230283_DSO101_A1/images.png)
+
+![alt text](02230283_DSO101_A1/bedeploy.png)
+
+![alt text](02230283_DSO101_A1/fedeploy.png)
+
+## Challenges Faced & Solutions
+
+Since a similar task for the build and push was completed in a class practical, I had previously encountered and resolved challenges related to:
+
+- GitHub secrets configuration and management
+the secrets were supposed to be added in the repository secrets and not the environment secrets. 
+
+- DockerHub authentication and token generation
+- Docker build context and file path specifications
+
+This prior experience allowed me to implement the GitHub Actions workflow efficiently without encountering significant technical obstacles.
+
+## Conclusion 
+
+This CI/CD implementation demonstrates a production-ready deployment pipeline that automates every aspect of the development-to-deployment workflow, ensuring consistent, reliable, and secure application delivery.
