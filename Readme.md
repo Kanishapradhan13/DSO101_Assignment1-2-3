@@ -102,10 +102,11 @@ Updated the frontend code to work with PostgreSQL's id field rather than MongoDB
 3. Deployment Challenges
 When attempting to deploy using render.yaml, encountered issues with the Dockerfile path. The solution involved:
 
-Moving render.yaml to the repository root
-Updating paths to include the subfolder:
+- Moving render.yaml to the repository root
+- Updating paths to include the subfolder:
 
 Changed ./backend/Dockerfile to images/backend/Dockerfile
+
 Changed ./frontend/Dockerfile to images/frontend/Dockerfile
 
 ## Conclusion
@@ -134,7 +135,9 @@ This repository contains the implementation of a Jenkins CI/CD pipeline for auto
 ## How the Pipeline Was Configured
 
 1. Jenkins Setup
+
 Installed Jenkins from jenkins.io/download and ran it on localhost:8080
+
 Installed required plugins:
 
 - NodeJS Plugin (for npm)
@@ -143,14 +146,18 @@ Installed required plugins:
 - Docker Pipeline
 
 2. NodeJS Configuration in Jenkins
+
 Navigated to Manage Jenkins > Tools > NodeJS
+
 Added NodeJS installation (version 24.0.2)
+
 Enabled automatic installation to ensure npm was properly detected
 
 ![alt text](images/nodejs.png)
 
 
 3. GitHub Repository Integration
+
 Created a GitHub Personal Access Token (PAT) with repo and admin:repo_hook permissions
 
 ![alt text](images/pat.png)
@@ -175,8 +182,11 @@ Created a Jenkinsfile in the repository root with the following stages:
 5. Pipeline Execution
 
 Created a new Jenkins Pipeline item
+
 Configured it to use Pipeline script from SCM (Git)
+
 Provided the repository URL and credentials
+
 Set the script path to "Jenkinsfile"
 
 
@@ -205,8 +215,7 @@ image link : https://hub.docker.com/repository/docker/kanishapradhan/node-app/ta
 
 ### GitHub repo link with Jenkinsfile 
 
-https://github.com/Kanishapradhan13/DSO101_Assignment1
-
+https://github.com/Kanishapradhan13/DSO101_Assignment1-2-3
 
 ## Challenges Faced & Solutions
 
@@ -218,8 +227,11 @@ When setting up Jenkins, there was confusion about how to ensure npm was properl
 Solution:
 
 Verified the NodeJS plugin was installed in Jenkins
+
 Configured NodeJS in Manage Jenkins > Tools
+
 Selected "Install automatically" to ensure npm was included
+
 Named the tool 'NodeJS 24.0.2' to clearly identify the version
 
 ![alt text](images/nodejs.png)
@@ -234,6 +246,7 @@ Initial pipeline runs failed with the error "Invalid parameter 'Url', did you me
 Solution:
 
 Fixed the case sensitivity issue by changing Url: to url: for the git repository URL
+
 Updated the NodeJS tool name in the Jenkinsfile to match exactly what was configured in Jenkins ('NodeJS 24.0.2')
 
 ![alt text](images/soln.png)
@@ -246,6 +259,7 @@ The pipeline failed with "npm error code ENOENT" because it was trying to find p
 Solution:
 
 Used the dir() step in the Jenkinsfile to change directories before running npm commands
+
 Created separate stages for frontend and backend to install dependencies, build, and test both components independently
 
 #### Challenge 4: React Build ESLint Errors
@@ -258,6 +272,7 @@ The frontend build failed due to ESLint warnings being treated as errors in the 
 Solution:
 
 Found the specific error in App.js about a missing React Hook dependency ('fetchTodos')
+
 Modified the build step to continue even if there were ESLint warnings
 
 ![alt text](images/soln2.png)
@@ -278,6 +293,7 @@ Added the Jenkins user to the Docker group:
 Restarted both Docker and Jenkins services:
 
 ```sudo systemctl restart docker```
+
 ```sudo systemctl restart jenkins```
 
 #### Challenge 6: Missing Dockerfile at Root
@@ -290,6 +306,7 @@ The deployment stage failed with "failed to read dockerfile: open Dockerfile: no
 Solution:
 
 Identified that existing Dockerfiles were already present in both frontend and backend directories
+
 Modified the Jenkinsfile to explicitly specify the path to the backend Dockerfile:
 
 ![alt text](images/soln4.png)
@@ -325,7 +342,9 @@ This repository contains the implementation of a CI/CD pipeline using GitHub Act
 1. Repository Structure Verification
 
 Verified both directories had their respective package.json files with necessary scripts
+
 Confirmed both directories contained proper Dockerfiles for containerization
+
 Made sure the repository was set to public for easier GitHub Actions execution
 
 ### GitHub Actions Workflow Creation
@@ -363,7 +382,9 @@ The frontend and backend services were deployed in assignment 1 itself
 1. Initial Commit and Push
 
 Committed all workflow files to repository
+
 Pushed changes to main branch
+
 Monitored GitHub Actions tab for workflow execution
 
 Verified each step executed successfully
@@ -385,9 +406,13 @@ Confirmed Docker images appeared in DockerHub repository
 Since a similar task for the build and push was completed in a class practical, I had previously encountered and resolved challenges related to:
 
 - GitHub secrets configuration and management
+
 the secrets were supposed to be added in the repository secrets and not the environment secrets. 
 
+![alt text](images/reposecrets.png)
+
 - DockerHub authentication and token generation
+
 The token should be given read and write access
 
 ![alt text](images/read.png)
@@ -409,10 +434,13 @@ This prior experience allowed me to implement the GitHub Actions workflow effici
 - DevOps Integration: Connected development workflow with production deployment seamlessly
 
 #### link to render deployment instance : 
+
 https://be-todo-02230283.onrender.com
+
 https://fe-todo-02230283.onrender.com
 
 #### GitHub Repo Link:
+
 https://github.com/Kanishapradhan13/DSO101_Assignment1-2-3
 
 ## Conclusion 
