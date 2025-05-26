@@ -51,6 +51,6 @@ jobs:
       # 7. Report Deployment Status
       - name: Report Deployment Status
         run: |
-          echo "✅ Backend image pushed to DockerHub: ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest"
-          echo "✅ Frontend image pushed to DockerHub: ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest"
-          echo "🚀 Deployment to Render.com triggered"
+          echo "Backend image pushed to DockerHub: ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest"
+          echo " Frontend image pushed to DockerHub: ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest"
+          echo " Deployment to Render.com triggered"
